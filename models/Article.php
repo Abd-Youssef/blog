@@ -17,7 +17,7 @@ class Article
     $this->hydrate($date_de_creation);
   }
 
-  //hdratation
+  //hydratation
   public function hydrate(array $date_de_creation){
     foreach ($date_de_creation as $key => $value) {
       $method = 'set'.ucfirst($key);
@@ -37,7 +37,7 @@ class Article
     }
   }
 
-  public function settitre($titre)
+  public function setTitre($titre)
   {
     if (is_string($titre)) {
       $this->_titre = $titre;
