@@ -87,7 +87,25 @@ class View
 
     }
   }
+  public function generateSignIn(){
 
+    //template
+    $view = $this->generateFileSimple($this->_file);
+    echo $view;
+  }
+  // public function generateSignIn(){
+
+  //   if($_SESSION["connect"]==false){
+  //     $view = $this->generateFileSimple($this->_file);
+  //     echo $view;
+  //   }
+  //   else{
+  //     $erreur = $this->generateFileSimple($this->_file);
+  //     $view = $this->generateFile('views/templateSign.php', array( 'erreur' => $erreur));
+  //     echo $view;
+  //   }
+    
+  // }
 
 
 

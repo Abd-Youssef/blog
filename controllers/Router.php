@@ -18,10 +18,14 @@ class Router
       });
       //on crée une variable $url
       $url = '';
+      //on crée une variable de verification
+      $connected=false;
 
       //on va determiner le controleur en
       //fonction de la valeur de cette variable
+      //if (isset($_GET['url'])&& $_SESSION["connect"]==true) {
       if (isset($_GET['url'])) {
+        
         //on décompose l'url et on lui applique un filtre
         $url = explode('/', filter_var($_GET['url'], FILTER_SANITIZE_URL));
 
@@ -48,10 +52,10 @@ class Router
 
         }
       }
-
       else {
         require_once('controllers/ControllerAccueil.php');
         $this->ctrl = new ControllerAccueil($url);
+
       }
 
     } catch (\Exception $e) {

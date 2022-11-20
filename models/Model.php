@@ -26,24 +26,10 @@ abstract class Model
   //de récupération de liste d'elements
   //dans la bdd
 
-  protected function getAll($table, $obj){
-    $this->getBdd();
-    $var = [];
-    $req = self::$_bdd->prepare('SELECT * FROM '.$table.' ORDER BY id desc');
-    $req->execute();
-
-    //on crée la variable data qui
-    //va cobntenir les données
-    while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
-      // var contiendra les données sous forme d'objets
-      $var[] = new $obj($data);
-    }
-
-    return $var;
-    $req->closeCursor();
+  abstract function getAll($elements,$table, $obj);
 
 
-  }
+  
 
   protected function getOne($table, $obj, $id)
   {
@@ -59,11 +45,13 @@ abstract class Model
     $req->closeCursor();
   }
 
+
+  //il faut changer cette fonction en une abstract function 
   protected function createOne($table, $obj)
   {
     $this->getBdd();
-    $req = self::$_bdd->prepare("INSERT INTO ".$table." (titre, contenu, date_de_creation) VALUES (?, ?, ?)");
-    $req->execute(array($_POST['titre'], $_POST['contenu'], date("d.m.Y")));
+    $req = self::$_bdd->prepare("INSERT INTO ".$table." (titre, contenu, date_de_creation,code_categorie,code_blogueur) VALUES (?, ?, ?,?,?)");
+    $req->execute(array($_POST['titre'], $_POST['contenu'], date("d.m.Y"), $_POST['categorie'], $_POST['blogueur']));
 
     $req->closeCursor();
   }

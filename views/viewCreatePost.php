@@ -10,13 +10,21 @@
       </span>
 
       <div class="wrap-input1 validate-input" data-validate = "Name is required">
-        <input class="input1" type="text" name="title" placeholder="Titre de l'article">
+        <input class="input1" type="text" name="titre" placeholder="Titre de l'article">
+        <span class="shadow-input1"></span>
+      </div>
+      <div class="wrap-input1 validate-input" data-validate = "Name is required">
+        <input class="input1" type="text" name="blogueur" placeholder="code blogueur">
+        <span class="shadow-input1"></span>
+      </div>
+      <div class="wrap-input1 validate-input" data-validate = "Name is required">
+        <input class="input1" type="text" name="categorie" placeholder="categorie">
         <span class="shadow-input1"></span>
       </div>
 
 
       <div class="wrap-input1 validate-input" data-validate = "Message is required">
-        <textarea class="input1" name="content" placeholder="Contenu de l'article"></textarea>
+        <textarea class="input1" name="contenu" placeholder="Contenu de l'article"></textarea>
         <span class="shadow-input1"></span>
       </div>
 
