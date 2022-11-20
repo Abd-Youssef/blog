@@ -1,5 +1,5 @@
 <?php 
-class User 
+class User
 {
     private $_id;
     private $_pseudo_utilisateur;
@@ -7,7 +7,6 @@ class User
     private $_password;
     private $_blogueur;
     private $_image;
-
 
     public function __construct(array $user){
         $this->hydrate($user);
