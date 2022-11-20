@@ -26,32 +26,41 @@
 </head>
 <body >
 
-	<!-- <header>
-		<div class="container-fluid position-relative no-side-padding">
+<link href="../public/header/bootstrap.min.css" rel="stylesheet">
+<link href="../public/header/headers.css" rel="stylesheet">
+<header class="p-3 text-bg-dark">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+      <a href="Accueil" class="logo"><img src="public/images/logo.png" alt="Logo Image"></a>
 
-			<a href="index.php" class="logo"><img src="public/images/logo.png" alt="Logo Image"></a>
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="Accueil" class="nav-link px-2 text-secondary">Home</a></li>
+          <li><a href="#" class="nav-link px-2 text-Black">Featudres</a></li>
+          <li><a href="#" class="nav-link px-2 text-Black">Pricing</a></li>
+          <li><a href="#" class="nav-link px-2 text-Black">FAQs</a></li>
+          <li><a href="#" class="nav-link px-2 text-Black">About</a></li>
+          
+        </ul>
+        
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+          <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
+        </form>
 
-			<div class="menu-nav-icon" data-nav-menu="#main-menu"><i class="ion-navicon"></i></div>
-
-			<ul class="main-menu visible-on-click" id="main-menu">
-				<li><a href="index.php">Home</a></li>
-				<li><a href="#">Categories</a></li>
-				<li><a href="#">Features</a></li>
-				<li><a href="post&create">Créer un article</a></li>
-			</ul>
-
-			<div class="src-area">
-				<form>
-					<button class="src-btn" type="submit"><i class="ion-ios-search-strong"></i></button>
-					<input class="src-input" type="text" placeholder="Type of search">
-				</form>
-				
-		</div>
-
-		</div>
-	</header> -->
-
-	<?php include("header.php") ?>
+        <div class="text-end">
+		<?php 
+		if ($_SESSION["connect"]==false){ ?>
+			<a href="SignIn" type="button" class="btn btn-outline-success ">Login</a>
+          	<a href="SignUp" type="button" class="btn btn-outline-warning">Sign-up</a>
+		<?php }
+		else {?>
+			<a href="post&create" type="button" class="btn btn-outline-success ">Créer un article</a>
+          	<a href="accueil&disconnect" type="button" class="btn btn-outline-danger">disconnect</a>		
+		<?php } ?>
+          
+        </div>
+      </div>
+    </div>
+  </header>
 
  	<?= $content ?>
 

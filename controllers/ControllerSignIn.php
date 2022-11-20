@@ -6,10 +6,10 @@
 
             private $_userManager;
             private $_view;
-            private $_connected =false;
             
             public function __construct()
             {
+                
                 $_SESSION["erreur"]=null ;
                 $this->_view = new View('SignIn');
                 if (isset($_GET['SignIn'])) {
@@ -28,7 +28,7 @@
           
             private function SignIn()
             {
-                //$_SESSION["connect"]=false ;
+                
                 
                 $this->_userManager = new UserManager;
                 $_users = $this->_userManager->getUsers();
@@ -40,26 +40,37 @@
                           $_SESSION["user"]=$compte["pseudo_utilisateur"] ;
                           $_SESSION["email"]=$compte["email"];
                           $_SESSION["password"]=$compte["password"];
-                          $this->_connected =true;
-                          //$_SESSION["connect"]=true;
-                          if(!empty($_POST["remember"]))   
-                            {  
-                                setcookie ("member_login",$Email,time()+ (10 * 365 * 24 * 60 * 60));  
-                                setcookie ("member_password",$Password,time()+ (10 * 365 * 24 * 60 * 60));
-                            }  
+                          $_SESSION["connect"]=true;
+                          $this->RememberMe($Email,$Password);
+                            
                            header("Location: Accueil" );
                         }
                         else {
                             header("Location: SignIn&Erreur" );
-                          $erreur= "Wrong Email or Password";
-                          break;
                         }
                       }
                 }
                 
       
             }
-
+            private function RememberMe($Email,$Password){
+                if(!empty($_POST["remember"]))   
+                {  
+                    setcookie ("member_login",$Email,time()+ (10 * 365 * 24 * 60 * 60));  
+                    setcookie ("member_password",$Password,time()+ (10 * 365 * 24 * 60 * 60));
+                }  
+                else  
+                {  
+                    if(isset($_COOKIE["member_login"]))   
+                    {  
+                    setcookie ("member_login","");  
+                    }  
+                    if(isset($_COOKIE["member_password"]))   
+                    {  
+                    setcookie ("member_password","");  
+                    }  
+                }
+            }
 
 
             public function GetConnected(){
