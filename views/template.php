@@ -51,21 +51,26 @@
 						<a href="SignIn" type="button" class="btn btn-outline-success m-3 ">Login</a>
 						<a href="SignUp" type="button" class="btn btn-outline-warning m-3">Sign-up</a>
 					<?php }
-					else {?>
+					else if( isset($_SESSION["blogueur"]) && $_SESSION["blogueur"]==true){?>
 						
 						<a href="post&create" type="button" class="btn btn-outline-success  m-1">Créer un article</a>
 						<a href="accueil&disconnect" type="button" class="btn btn-outline-danger m-1">disconnect</a>		
-					<?php } ?>
-					
+					<?php 
+					} 
+					else {?>
+						<a href="accueil&disconnect" type="button" class="btn btn-outline-danger m-1">disconnect</a>
+						<?php } ?>
+					<?php  if ($_SESSION["connect"]==true){ ?>
 						<div class="nav-item dropdown m-1 flex-fill">
 							<a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action"><img src="inc/images/user.png" class="avatar" > <?php echo $_SESSION["user"] ?> <b class="caret"></b></a>
 							<div class="dropdown-menu">
-								<a href="#" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a></a>
-								<a href="#" class="dropdown-item"><i class="fa fa-calendar-o"></i> Calendar</a></a>
-								<a href="#" class="dropdown-item"><i class="fa fa-sliders"></i> Settings</a></a>
+								<a href="#" class="dropdown-item"><i class="fa fa-user-o"></i> Table of users</a></a>
+								<a href="#" class="dropdown-item"><i class="fa fa-calendar-o"></i> Table of Articles</a></a>
+								<a href="#" class="dropdown-item"><i class="fa fa-sliders"></i> Statistique </a></a>
 								<div class="dropdown-divider"></div>
 							</div>
 						</div>
+					<?php } ?>
 				</div>		
 		</div>
     </div>
