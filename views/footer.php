@@ -20,19 +20,23 @@
 					</div><!-- footer-section -->
 				</div><!-- col-lg-4 col-md-6 -->
 
+
+
+				
 				<div class="col-lg-4 col-md-6">
-						<div class="footer-section">
+					<div class="footer-section">
 						<h4 class="title"><b>CATAGORIES</b></h4>
-						<ul>
-							<li><a href="#">BEAUTY</a></li>
-							<li><a href="#">HEALTH</a></li>
-							<li><a href="#">MUSIC</a></li>
-						</ul>
-						<ul>
-							<li><a href="#">SPORT</a></li>
-							<li><a href="#">DESIGN</a></li>
-							<li><a href="#">TRAVEL</a></li>
-						</ul>
+						<div class="row align-items-center">
+		
+							<?php if (isset($_SESSION["categories"])){
+								foreach ($_SESSION["categories"] as $categorie ) { ?>
+									<div class="col">
+										<a href="#" class=""> <?= $categorie["nom"] ?></a>
+									</div>
+							<?php
+								}
+							} ?>
+						</div>
 					</div><!-- footer-section -->
 				</div><!-- col-lg-4 col-md-6 -->
 

@@ -31,7 +31,7 @@
 <nav class="text-bg-dark m-3 mx-5  " >
 	<div class="container-fluid ">
 		<div class="d-flex justify-content-between">
-				<div class="d-flex align-items-center   ">
+				<div class="d-flex align-items-center  ">
 					<ul class="nav col-12 col-lg-auto me-lg-auto mb-2  mb-md-0">
 						<a href="Accueil" class="nav-link px-2 "><img src="public/images/logo.png" alt="Logo Image"></a>
 						<li><a href="Accueil" class="nav-link px-2 text-secondary">Home</a></li>
@@ -41,7 +41,7 @@
 								<div class="dropdown-menu">
 									<?php if (isset($_SESSION["categories"])){
 										foreach ($_SESSION["categories"] as $categorie ) { ?>
-											<a href="#" class="dropdown-item"><i class="fa fa-user-o"></i> <?= $categorie["nom"] ?></a>
+											<a href="Accueil&type=<?= $categorie["nom"] ?>" class=" dropdown-item"><i class="fa fa-user-o"></i> <?= $categorie["nom"] ?></a>
 											
 									<?php
 										}

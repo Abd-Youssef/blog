@@ -25,6 +25,9 @@ class ControllerAccueil
       $this->disconnect();
       header("Location: Accueil" );
     }
+    elseif (isset($_GET['type'])) {
+      $this->filtredArticles($_GET['type']);
+    }
     else {
       $this->articles();
     }
@@ -35,6 +38,19 @@ class ControllerAccueil
 
     $this->_articleManager = new ArticleManager();
     $articles = $this->_articleManager->getArticles();
+
+    //ajourt des categories dans la nav bar
+    $this->_categorieManager = new CategorieManager();
+    $_SESSION["categories"] = $this->_categorieManager->getCategories();
+
+    $this->_view->generate(array('articles' => $articles));
+
+  }
+  private function filtredArticles($filter){
+    $this->_view = new View('Accueil');
+
+    $this->_articleManager = new ArticleManager();
+    $articles = $this->_articleManager->getFiltredArticles($filter);
 
     //ajourt des categories dans la nav bar
     $this->_categorieManager = new CategorieManager();

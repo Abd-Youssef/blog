@@ -27,12 +27,12 @@ abstract class Model
   //dans la bdd
   //principalement récupiration des articles
 
-  protected function getAllWithObj($elements,$table, $obj){
+  protected function getAllWithObj($sql, $obj){
     $var = [];
     $this->getBdd();
-    $req = self::$_bdd->prepare('SELECT '.$elements.'FROM '.$table);
+    $req = self::$_bdd->prepare($sql);
     $req->execute();
-
+    
     //on crée la variable data qui
     //va cobntenir les données
     while ($data = $req->fetch(PDO::FETCH_ASSOC)) {

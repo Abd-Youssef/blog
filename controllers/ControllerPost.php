@@ -26,7 +26,7 @@ class ControllerPost
   //fonction pour afficher un article
   private function article()
   {
-    if (isset($_GET['id'], $_GET['id'])) {
+    if (isset($_GET['id'])) {
       $this->_articleManager = new ArticleManager;
       $article = $this->_articleManager->getArticle($_GET['id']);
       $this->_view = new View('SinglePost');

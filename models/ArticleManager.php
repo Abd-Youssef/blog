@@ -18,11 +18,20 @@ class ArticleManager extends Model
   //gréer la fonction qui va recuperer
   //tous les articles dans la bdd
   public function getArticles(){
-    return $this->getAllWithObj('*','articles', 'Article');
+    return $this->getAllWithObj('SELECT * FROM articles', 'Article');
   }
 
   public function getArticle($id){
       return $this->getOne('articles', 'Article', $id);
+    }
+  public function getFiltredArticles($filter){
+      $sql = "SELECT *    
+              FROM articles
+              LEFT JOIN categories
+              ON code_categorie = categories.id
+              WHERE categories.nom = '$filter'
+              ";
+      return $this->getAllWithObj($sql, 'Article');
     }
 
   public function createArticle(){
