@@ -61,14 +61,9 @@
                 }  
                 else  
                 {  
-                    if(isset($_COOKIE["member_login"]))   
-                    {  
-                    setcookie ("member_login","");  
-                    }  
-                    if(isset($_COOKIE["member_password"]))   
-                    {  
+                    setcookie ("member_login","");     
                     setcookie ("member_password","");  
-                    }  
+                      
                 }
             }
 

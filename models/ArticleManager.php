@@ -5,28 +5,20 @@
  */
 class ArticleManager extends Model
 {
-  function getAll($elements,$table, $obj){
-    $var = [];
-    $req = $this->getBdd()->prepare('SELECT '.$elements.'FROM '.$table);
-    $req->execute();
+  
+  // function createOne($table)
+  // {
+  //   $db =$this->getBdd();
+  //   $req = $db->prepare("INSERT INTO ".$table." (titre, contenu, date_de_creation,code_categorie,code_blogueur) VALUES (?, ?, ?,?,?)");
+  //   $req->execute(array($_POST['titre'], $_POST['contenu'], date("d.m.Y"), $_POST['categorie'], $_POST['blogueur']));
 
-    //on crée la variable data qui
-    //va cobntenir les données
-    while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
-      // var contiendra les données sous forme d'objets
-      $var[] = new $obj($data);
-    }
-
-    return $var;
-    $req->closeCursor();
-
-
-  }
+  //   $req->closeCursor();
+  // }
 
   //gréer la fonction qui va recuperer
   //tous les articles dans la bdd
   public function getArticles(){
-    return $this->getAll('*','articles', 'Article');
+    return $this->getAllWithObj('*','articles', 'Article');
   }
 
   public function getArticle($id){
@@ -34,7 +26,7 @@ class ArticleManager extends Model
     }
 
   public function createArticle(){
-      return $this->createOne('articles', 'Article');
+      return $this->createOne('articles',"titre, contenu, date_de_creation,code_categorie,code_blogueur",[$_POST['titre'], $_POST['contenu'], date("d.m.Y"), $_POST['categorie'], $_POST['blogueur']],"?,?,?,?");
     }
 
 }

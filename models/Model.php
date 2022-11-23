@@ -25,9 +25,51 @@ abstract class Model
   //creation de la methode
   //de récupération de liste d'elements
   //dans la bdd
+  //principalement récupiration des articles
 
-  abstract function getAll($elements,$table, $obj);
+  protected function getAllWithObj($elements,$table, $obj){
+    $var = [];
+    $this->getBdd();
+    $req = self::$_bdd->prepare('SELECT '.$elements.'FROM '.$table);
+    $req->execute();
 
+    //on crée la variable data qui
+    //va cobntenir les données
+    while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
+      // var contiendra les données sous forme d'objets
+      $var[] = new $obj($data);
+    }
+
+    return $var;
+    $req->closeCursor();
+
+
+  }
+
+  //principalement récupiration des users
+  protected function getAll($elements,$table){
+    $this->getBdd();
+    $req = self::$_bdd->prepare('SELECT '.$elements.'FROM '.$table);
+    $req->execute();
+
+    //on crée la variable data qui
+    //va cobntenir les données
+    $data = $req->fetchAll(PDO::FETCH_ASSOC);
+
+    return $data;
+    $req->closeCursor();
+
+
+  }
+
+  protected function createOne($table,$attribue,$valeur,$nbrParametre)
+  {
+    $this->getBdd();
+    $req = self::$_bdd->prepare("INSERT INTO ".$table." (".$attribue.") VALUES (".$nbrParametre.")");
+    $req->execute($valeur);
+
+    $req->closeCursor();
+  }
 
   
 
@@ -46,15 +88,6 @@ abstract class Model
   }
 
 
-  //il faut changer cette fonction en une abstract function 
-  protected function createOne($table, $obj)
-  {
-    $this->getBdd();
-    $req = self::$_bdd->prepare("INSERT INTO ".$table." (titre, contenu, date_de_creation,code_categorie,code_blogueur) VALUES (?, ?, ?,?,?)");
-    $req->execute(array($_POST['titre'], $_POST['contenu'], date("d.m.Y"), $_POST['categorie'], $_POST['blogueur']));
-
-    $req->closeCursor();
-  }
 
 
 

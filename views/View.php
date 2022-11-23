@@ -88,10 +88,16 @@ class View
     }
   }
   public function generateSignIn(){
+    //définir le contenu à envoyer
+    $content = $this->generateFileSimple($this->_file);
 
     //template
-    $view = $this->generateFileSimple($this->_file);
+    $view = $this->generateFile('views/templateSign.php', array('t' => $this->_t, 'content' => $content));
     echo $view;
+
+    //template
+    //$view = $this->generateFileSimple($this->_file);
+    //echo $view;
   }
   // public function generateSignIn(){
 
