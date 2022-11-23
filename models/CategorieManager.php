@@ -3,7 +3,7 @@
 /**
  *
  */
-class UserManager extends Model
+class CategorieManager extends Model
 {
   //gréer la fonction qui va recuperer
   //tous les articles dans la bdd
@@ -29,7 +29,7 @@ class UserManager extends Model
     }
 
   private function uniqueElement($element,$variable){
-    $users=$this->getUsers();
+    $users=$this->getCategories();
     foreach ($users as $user) {
       if ($element == $user[$variable]){
         return false ;

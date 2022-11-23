@@ -28,15 +28,28 @@
 
 <link href="../public/header/bootstrap.min.css" rel="stylesheet">
 <link href="../public/header/headers.css" rel="stylesheet">
-<nav class="text-bg-dark m-3 " >
+<nav class="text-bg-dark m-3 mx-5  " >
 	<div class="container-fluid ">
 		<div class="d-flex justify-content-between">
-				<div class="d-flex align-items-center  ">
+				<div class="d-flex align-items-center   ">
 					<ul class="nav col-12 col-lg-auto me-lg-auto mb-2  mb-md-0">
 						<a href="Accueil" class="nav-link px-2 "><img src="public/images/logo.png" alt="Logo Image"></a>
 						<li><a href="Accueil" class="nav-link px-2 text-secondary">Home</a></li>
-						<li><a href="#" class="nav-link px-2 text-Black">Features</a></li>
-						<li><a href="#" class="nav-link px-2 text-Black">Pricing</a></li>	
+						<li>
+							<div class="nav-item dropdown  flex-fill">
+								<a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action"> Categories <b class="caret"></b></a>
+								<div class="dropdown-menu">
+									<?php if (isset($_SESSION["categories"])){
+										foreach ($_SESSION["categories"] as $categorie ) { ?>
+											<a href="#" class="dropdown-item"><i class="fa fa-user-o"></i> <?= $categorie["nom"] ?></a>
+											
+									<?php
+										}
+									} ?>
+									<div class="dropdown-divider"></div>
+								</div>
+							</div>
+						</li>	
 					</ul>
 				</div>
 				<div class="d-flex align-items-center  flex-grow">
