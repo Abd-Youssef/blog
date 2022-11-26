@@ -28,9 +28,9 @@
 
             </div><!-- post-info -->
 
-            <h3 class="title"><a href="#"><b><?=$article[0]->titre()?></b></a></h3>
+            <h3 class="title"><a href="#"><b><?= $article[0]->titre() ?></b></a></h3>
 
-            <p class="para"><?=$article[0]->contenu()?></p>
+            <p class="para"><?= $article[0]->contenu() ?></p>
 
 
 
@@ -138,7 +138,7 @@
             <div class="blog-info">
 
               <h4 class="title"><a href="#"><b>How Did Van Gogh's Turbulent Mind Depict One of the Most Complex
-              Concepts in Physics?</b></a></h4>
+                    Concepts in Physics?</b></a></h4>
 
               <ul class="post-footer">
                 <li><a href="#"><i class="ion-heart"></i>57</a></li>
@@ -161,7 +161,7 @@
 
             <div class="blog-info">
               <h4 class="title"><a href="#"><b>How Did Van Gogh's Turbulent Mind Depict One of the Most Complex
-                Concepts in Physics?</b></a></h4>
+                    Concepts in Physics?</b></a></h4>
 
               <ul class="post-footer">
                 <li><a href="#"><i class="ion-heart"></i>57</a></li>
@@ -185,7 +185,7 @@
 
             <div class="blog-info">
               <h4 class="title"><a href="#"><b>How Did Van Gogh's Turbulent Mind Depict One of the Most Complex
-                Concepts in Physics?</b></a></h4>
+                    Concepts in Physics?</b></a></h4>
 
               <ul class="post-footer">
                 <li><a href="#"><i class="ion-heart"></i>57</a></li>
@@ -215,17 +215,14 @@
             <div class="row">
 
               <div class="col-sm-6">
-                <input type="text" aria-required="true" name="contact-form-name" class="form-control"
-                  placeholder="Enter your name" aria-invalid="true" required >
+                <input type="text" aria-required="true" name="contact-form-name" class="form-control" placeholder="Enter your name" aria-invalid="true" required>
               </div><!-- col-sm-6 -->
               <div class="col-sm-6">
-                <input type="email" aria-required="true" name="contact-form-email" class="form-control"
-                  placeholder="Enter your email" aria-invalid="true" required>
+                <input type="email" aria-required="true" name="contact-form-email" class="form-control" placeholder="Enter your email" aria-invalid="true" required>
               </div><!-- col-sm-6 -->
 
               <div class="col-sm-12">
-                <textarea name="contact-form-message" rows="2" class="text-area-messge form-control"
-                  placeholder="Enter your comment" aria-required="true" aria-invalid="false"></textarea >
+                <textarea name="contact-form-message" rows="2" class="text-area-messge form-control" placeholder="Enter your comment" aria-required="true" aria-invalid="false"></textarea>
               </div><!-- col-sm-12 -->
               <div class="col-sm-12">
                 <button class="submit-btn" type="submit" id="form-submit"><b>POST COMMENT</b></button>
@@ -253,7 +250,7 @@
               </div>
 
               <div class="right-area">
-                <h5 class="reply-btn" ><a href="#"><b>REPLY</b></a></h5>
+                <h5 class="reply-btn"><a href="#"><b>REPLY</b></a></h5>
               </div>
 
             </div><!-- post-info -->
@@ -279,7 +276,7 @@
               </div>
 
               <div class="right-area">
-                <h5 class="reply-btn" ><a href="#"><b>REPLY</b></a></h5>
+                <h5 class="reply-btn"><a href="#"><b>REPLY</b></a></h5>
               </div>
 
             </div><!-- post-info -->
@@ -308,7 +305,7 @@
               </div>
 
               <div class="right-area">
-                <h5 class="reply-btn" ><a href="#"><b>REPLY</b></a></h5>
+                <h5 class="reply-btn"><a href="#"><b>REPLY</b></a></h5>
               </div>
 
             </div><!-- post-info -->

@@ -24,6 +24,10 @@ class ArticleManager extends Model
   public function getArticle($id){
       return $this->getOne('articles', 'Article', $id);
     }
+
+  public function deleteArticle($id){
+      return $this->requete("DELETE FROM articles WHERE id=$id");
+    }
   public function getFiltredArticles($filter){
       $sql = "SELECT *    
               FROM articles
@@ -39,9 +43,3 @@ class ArticleManager extends Model
     }
 
 }
-
-
-
-
-
- ?>

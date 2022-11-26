@@ -9,14 +9,16 @@ class Categorie
   private $_id;
   private $_nom;
 
-  public function __construct(array $categorie){
+  public function __construct(array $categorie)
+  {
     $this->hydrate($categorie);
   }
 
   //hydratation
-  public function hydrate(array $categorie){
+  public function hydrate(array $categorie)
+  {
     foreach ($categorie as $key => $value) {
-      $method = 'set'.ucfirst($key);
+      $method = 'set' . ucfirst($key);
       if (method_exists($this, $method)) {
         $this->$method($value);
       }
@@ -40,7 +42,7 @@ class Categorie
     }
   }
 
-  
+
 
   //getters
   public function id()
@@ -52,9 +54,4 @@ class Categorie
   {
     return $this->_nom;
   }
-
-  
-
-
-
 }

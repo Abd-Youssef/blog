@@ -1,9 +1,10 @@
 <!DOCTYPE HTML>
 <html lang="en">
+
 <head>
 	<title>Vue Article</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="UTF-8">
 
 
@@ -26,47 +27,16 @@
 	<link href="../public/header/headers.css" rel="stylesheet">
 
 </head>
-<body >
+
+<body>
 
 
-<header class="p-3 text-bg-dark">
-    <div class="container">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-      <a href="Accueil" class="logo"><img src="public/images/logo.png" alt="Logo Image"></a>
+	<?php include("header.php") ?>
 
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="Accueil" class="nav-link px-2 text-secondary">Home</a></li>
-          <li><a href="#" class="nav-link px-2 text-Black">Featudres</a></li>
-          <li><a href="#" class="nav-link px-2 text-Black">Pricing</a></li>
-          <li><a href="#" class="nav-link px-2 text-Black">FAQs</a></li>
-          <li><a href="#" class="nav-link px-2 text-Black">About</a></li>
-          
-        </ul>
-        
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-          <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
-        </form>
-
-        <div class="text-end">
-		<?php 
-		if ($_SESSION["connect"]==false){ ?>
-			<a href="SignIn" type="button" class="btn btn-outline-success ">Login</a>
-          	<a href="SignUp" type="button" class="btn btn-outline-warning">Sign-up</a>
-		<?php }
-		else {?>
-			<a href="SignIn" type="button" class="btn btn-outline-success ">Créer un article</a>
-          	<a href="SignUp" type="button" class="btn btn-outline-danger">Sign-out</a>		
-		<?php } ?>
-          
-        </div>
-      </div>
-    </div>
-  </header>
-
-<?= $content ?>
+	<?= $content ?>
 
 
-<?php include("footer.php") ?>
+	<?php include("footer.php") ?>
 
 
 	<!-- SCIPTS -->
@@ -80,4 +50,5 @@
 	<script src="public/common-js/scripts.js"></script>
 
 </body>
+
 </html>

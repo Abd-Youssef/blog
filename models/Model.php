@@ -45,6 +45,14 @@ abstract class Model
 
 
   }
+  //generale
+  protected function requete($sql){
+    $this->getBdd();
+    $req = self::$_bdd->prepare($sql);
+    $req->execute();
+    return $req;
+    $req->closeCursor();
+  }
 
   //principalement récupiration des users
   protected function getAll($elements,$table){
@@ -101,14 +109,3 @@ abstract class Model
 
 
 }
-
-
-
-
-
-
-
-
-
-
- ?>

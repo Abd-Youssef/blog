@@ -1,15 +1,13 @@
+<!-- <div class="slider"></div> -->
 
+<section class="blog-area section">
+	<div class="container">
 
-	<!-- <div class="slider"></div> -->
+		<div class="row">
 
-	<section class="blog-area section">
-		<div class="container">
-
-			<div class="row">
-
-        <?php
-        foreach ($articles as $article):
-         ?>
+			<?php
+			foreach ($articles as $article) :
+			?>
 
 
 
@@ -20,12 +18,12 @@
 
 							<div class="blog-image"><img src="public/images/marion-michele-330691.jpg" alt="Blog Image"></div>
 
-							<a class="avatar" href="post&id=<?= $article->id() ?>"><img src=<?= $article->image()?> alt=<?= $article->titre()." Image" ?> style="background-color:white ;"></a>
+							<a class="avatar" href="post&id=<?= $article->id() ?>"><img src=<?= $article->image() ?> alt=<?= $article->titre() . " Image" ?> style="background-color:white ;"></a>
 
 							<div class="blog-info">
 
 								<h4 class="title"><a href="post&id=<?= $article->id() ?>"><b><?= $article->titre() ?></b></a></h4>
-								<p><?= $article->description() ?><a href="post&id=<?= $article->id() ?>" style="color:#ba04c2 ;" > voir plus ...</a></p>
+								<p><?= $article->description() ?><a href="post&id=<?= $article->id() ?>" style="color:#ba04c2 ;"> voir plus ...</a></p>
 
 								<ul class="post-footer">
 									<li><a href="#"><i class="ion-heart"></i>57</a></li>
@@ -38,11 +36,11 @@
 					</div><!-- card -->
 				</div><!-- col-lg-4 col-md-6 -->
 
-        <?php endforeach ?>
+			<?php endforeach ?>
 
-			</div><!-- row -->
+		</div><!-- row -->
 
-			<a class="load-more-btn" href="#"><b>LOAD MORE</b></a>
+		<a class="load-more-btn" href="#"><b>LOAD MORE</b></a>
 
-		</div><!-- container -->
-	</section><!-- section -->
+	</div><!-- container -->
+</section><!-- section -->

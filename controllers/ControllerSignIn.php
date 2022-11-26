@@ -34,12 +34,10 @@
                 $_users = $this->_userManager->getUsers();
                 foreach($_users as $key => $compte){
                     if (isset($_POST["email"]) && isset($_POST["password"]) ){
-                        echo"1";
                         $Email = $_POST["email"];
                         $Password = $_POST["password"];
-                        if (($compte["email"]==$Email) && ($compte["password"]==$Password)){
-                            echo"2";
-                            $_SESSION["user"]=$compte["pseudo_utilisateur"] ;
+                        if (($compte->email()==$Email) && ($compte->password()==$Password)){
+                          $_SESSION["user"]=$compte["pseudo_utilisateur"] ;
                           $_SESSION["email"]=$compte["email"];
                           $_SESSION["password"]=$compte["password"];
                           $_SESSION["blogueur"]=$compte["blogueur"];

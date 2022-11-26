@@ -8,11 +8,15 @@ class UserManager extends Model
   //gréer la fonction qui va recuperer
   //tous les articles dans la bdd
   public function getUsers(){
-    return $this->getAll('*','user', 'User');
+    return $this->getAllWithObj('SELECT * FROM user', 'User');
   }
 
   public function getUser($id){
       return $this->getOne('user', 'User', $id);
+    }
+
+  public function deleteUser($id){
+      return $this->requete("DELETE FROM user WHERE id=$id");
     }
 
 
@@ -41,7 +45,7 @@ class UserManager extends Model
   private function uniqueElement($element,$variable){
     $users=$this->getUsers();
     foreach ($users as $user) {
-      if ($element == $user[$variable]){
+      if ($element == $user->$variable()){
         return false ;
       }
     }
@@ -49,9 +53,3 @@ class UserManager extends Model
   }
 
 }
-
-
-
-
-
- ?>
