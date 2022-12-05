@@ -43,7 +43,7 @@ class View
     echo $view;
   }
 
-  //générer la vue du forulaire
+  //générer la vue du formulaire
   //de création d'un article
   public function generateForm(){
     //définir le contenu à envoyer
@@ -99,6 +99,19 @@ class View
     //$view = $this->generateFileSimple($this->_file);
     //echo $view;
   }
+
+  public function generateTab($data){
+    //définir le contenu à envoyer
+    //créer les article 
+    $content = $this->generateFile($this->_file, $data);
+
+    //template
+    //créer la page compléte
+    $view = $this->generateFile('views/templateSearch.php', array('t' => $this->_t, 'content' => $content));
+    //afficher la page
+    echo $view;
+  }
+
   // public function generateSignIn(){
 
   //   if($_SESSION["connect"]==false){

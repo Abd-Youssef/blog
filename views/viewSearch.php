@@ -1,18 +1,7 @@
-<!-- <div class="slider"></div> -->
-
-<section class="blog-area section" id= "output">
-	<div class="container">
-
-		<div class="row" >
-
-			<?php
+<?php
 			foreach ($articles as $article) :
 			?>
-
-
-
-
-				<div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-6">
 					<div class="card h-100">
 						<div class="single-post post-style-1">
 
@@ -37,10 +26,3 @@
 				</div><!-- col-lg-4 col-md-6 -->
 
 			<?php endforeach ?>
-
-		</div><!-- row -->
-
-		<a class="load-more-btn" href="#"><b>LOAD MORE</b></a>
-
-	</div><!-- container -->
-</section><!-- section -->

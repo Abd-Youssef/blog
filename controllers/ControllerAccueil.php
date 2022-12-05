@@ -25,12 +25,17 @@ class ControllerAccueil
       $this->disconnect();
       header("Location: Accueil" );
     }
-    elseif (isset($_GET['type'])) {
-      $this->filtredArticles($_GET['type']);
+    elseif (isset($_GET['tag']) ) {
+      $this->tagedArticles("WHERE titre LIKE '%".$_GET['tag']."%'",);
+
+    }
+    elseif(isset($_GET['type'])) {
+      $this->filtredArticles("WHERE categories.nom = '$_GET[type]'",);
     }
     else {
       $this->articles();
     }
+    
   }
 
   private function articles(){
@@ -46,11 +51,11 @@ class ControllerAccueil
     $this->_view->generate(array('articles' => $articles));
 
   }
-  private function filtredArticles($filter){
+  private function filtredArticles($req){
     $this->_view = new View('Accueil');
 
     $this->_articleManager = new ArticleManager();
-    $articles = $this->_articleManager->getFiltredArticles($filter);
+    $articles = $this->_articleManager->getFiltredArticles($req);
 
     //ajourt des categories dans la nav bar
     $this->_categorieManager = new CategorieManager();
@@ -59,6 +64,21 @@ class ControllerAccueil
     $this->_view->generate(array('articles' => $articles));
 
   }
+
+  private function tagedArticles($req){
+    $this->_view = new View('Accueil');
+
+    $this->_articleManager = new ArticleManager();
+    $articles = $this->_articleManager->getFiltredArticles($req);
+
+    //ajourt des categories dans la nav bar
+    $this->_categorieManager = new CategorieManager();
+    $_SESSION["categories"] = $this->_categorieManager->getCategories();
+
+    $this->_view->generateTab(array('articles' => $articles));
+
+  }
+
   private function disconnect(){
     session_destroy();
   }

@@ -21,7 +21,7 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="email" class="form-control" name="email" placeholder="Email" value="<?php if (isset($_COOKIE["member_login"])) {
+						<input type="email" class="form-control"  name="email" placeholder="Email" value="<?php if (isset($_COOKIE["member_login"])) {
 																												echo $_COOKIE["member_login"];
 																											} ?>">
 

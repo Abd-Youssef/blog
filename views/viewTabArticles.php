@@ -122,7 +122,7 @@
                         <h2>Tab <b>Articles</b></h2>
                     </div>
                     <div class="col-sm-4">
-                        <a href="" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New </a>
+                        <a href="post&create" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New </a>
                     </div>
                 </div>
             </div>
@@ -137,7 +137,7 @@
                         <th>action</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="output">
                     <?php
                     foreach ($articles as $article) {
 
