@@ -29,7 +29,7 @@ class ControllerTab
         $this->supprimerArticle($_GET['delete']);
       }
       if (isset($_GET['edit'])) {
-        //$this->editArticle($_GET['edit']);
+        header("Location: post&edit=$_GET[edit]");
       }
       $this->afficheTabArticles();
     } elseif (isset($_GET['statistique'])) {
@@ -90,4 +90,6 @@ private function supprimerArticle($id)
 
     $this->_view->generate(array('articles' => $articles));
   }
+
+
 }

@@ -1,8 +1,4 @@
 <?php
-
-/**
- *
- */
 class Article
 {
 
@@ -12,6 +8,9 @@ class Article
   private $_date_de_creation;
   private $_image;
   private $_description;
+  private $_code_categorie ;
+  private $_date_de_modification;
+  private $_code_blogueur;
 
   public function __construct(array $date_de_creation){
     $this->hydrate($date_de_creation);
@@ -57,9 +56,9 @@ class Article
     }
   }
 
-  public function setDate($date_de_creation)
+  public function setDate_de_creation($date_de_creation)
   {
-      $this->date_de_creation = $date_de_creation;
+      $this->_date_de_creation = $date_de_creation;
 
   }
   public function setImage($image)
@@ -69,6 +68,21 @@ class Article
     }
   }
 
+  public function setDate_de_modification($date_de_modification)
+  {
+      $this->_date_de_modification = $date_de_modification;
+
+  }
+  public function setCode_categorie($code_categorie)
+  {
+      $this->_code_categorie = $code_categorie;
+
+  }
+  public function setCode_blogueur($code_blogueur)
+  {
+      $this->_code_blogueur = $code_blogueur;
+
+  }
   //getters
   public function id()
   {
@@ -97,7 +111,18 @@ class Article
   {
     return $this->_image;
   }
-
+  public function date_de_modification()
+  {
+    return $this->_date_de_modification;
+  }
+  public function code_categorie()
+  {
+    return $this->_code_categorie;
+  }
+  public function code_blogueur()
+  {
+    return $this->_code_blogueur;
+  }
 
 
 }

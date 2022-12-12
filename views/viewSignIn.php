@@ -12,7 +12,7 @@
 			<div class="card-body">
 				<form method="POST" action="SignIn&SignIn">
 					<?php
-					if ($_SESSION["erreur"] != null) { ?>
+					if (!empty($_SESSION["erreur"])) { ?>
 						<div class="alert alert-danger" role="alert">
 							<p><?php echo $_SESSION["erreur"] ?></p>
 						</div>
@@ -40,16 +40,13 @@
 					<div class="form-group">
 						<input type="submit" value="Login" class="btn float-right login_btn">
 					</div>
-				</form>
-			</div>
-			<div class="card-footer">
-				<div class="d-flex justify-content-center links">
+					<div class="d-flex justify-content-center links">
 					Don't have an account?<a href="SignUp">Sign Up</a>
 				</div>
-				<div class="d-flex justify-content-center">
-					<a href="#">Forgot your password?</a>
-				</div>
+				</form>
+				
 			</div>
+			
 		</div>
 	</div>
 </div>

@@ -9,20 +9,18 @@
             
             public function __construct()
             {
-                
-                $_SESSION["erreur"]=null ;
-                $this->_view = new View('SignUp');
+                $_SESSION["SignUpError"]="";
                 if (isset($_GET['SignUp'])) {
                     $this->SignUp();
-                    header("location : SignIn");
+                    
                 }
                 // elseif (isset($_GET['Erreur'])) {
-                //     $_SESSION["erreur"]="Verify your Email or Password";
+                //     $_SESSION["SignUpError"]="Verify your Email or Password";
                 //     $this->_view->generateSignIn();
                 // }
 
                 else {
-                    
+                    $this->_view = new View('SignUp');
                     $this->_view->generateSignIn();
                  }
             }
@@ -30,11 +28,17 @@
             private function SignUp()
             {
                 $this->_userManager = new UserManager;
+                if($this->_userManager->createUser()){
+                    $this->_view = new View('SignIn');
+                    $this->_view->generateSignIn();
+                }
+                else{
+                    $this->_view = new View('SignUp');
+                    $this->_view->generateSignIn();
+                    echo $_SESSION["SignUpError"];
+                }
                 
-                
-                $this->_userManager->createUser();
-                $this->_view = new View('SignIn');
-                $this->_view->generateSignIn();
+
                 
       
             }

@@ -9,8 +9,7 @@
             
             public function __construct()
             {
-                
-                $_SESSION["erreur"]=null ;
+                $_SESSION["erreur"]="";
                 $this->_view = new View('SignIn');
                 if (isset($_GET['SignIn'])) {
                     $this->SignIn();

@@ -53,6 +53,16 @@ class View
     $view = $this->generateFile('views/templateForm.php', array('t' => $this->_t, 'content' => $content));
     echo $view;
   }
+  public function generateEditForm($article){
+    //définir le contenu à envoyer
+    //$content = $this->generateFileSimple($this->_file);
+
+    $content = $this->generateFile($this->_file , array('article' => $article));
+
+    //template
+    $view = $this->generateFile('views/templateForm.php', array('t' => $this->_t, 'content' => $content));
+    echo $view;
+  }
 
 
   private function generateFile($file, $data){
@@ -76,15 +86,10 @@ class View
 
   private function generateFileSimple($file){
     if (file_exists($file)) {
-
-
-
       require $file;
-
     }
     else {
       throw new \Exception("Fichier ".$file." introuvable", 1);
-
     }
   }
   public function generateSignIn(){

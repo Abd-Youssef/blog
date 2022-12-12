@@ -8,8 +8,7 @@
 			<?php
 			foreach ($articles as $article) :
 			?>
-
-
+				
 
 
 				<div class="col-lg-4 col-md-6">

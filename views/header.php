@@ -24,8 +24,6 @@ function showTab(value) {
         document.getElementById("output").innerHTML = xmlhttp.responseText;
 	}
     };
-	
-    
 }
   
 </script>
