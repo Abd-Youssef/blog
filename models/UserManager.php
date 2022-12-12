@@ -46,10 +46,14 @@ class UserManager extends Model
               
               
             }
-
-      
-    
     }
+    public function updateUser($id){
+    
+      $req =  " UPDATE user
+                SET pseudo_utilisateur	 = '$_POST[pseudo_utilisateur]',email='$_POST[email]',	password ='$_POST[password]'
+                WHERE id = $id ";
+        return $this->requete($req);
+      }
 
   private function uniqueElement($element,$variable){
     $users=$this->getUsers();

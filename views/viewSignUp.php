@@ -10,7 +10,7 @@
 				</div>
 			</div>
 			<div class="card-body" >
-				<form method="POST" action="SignUp&SignUp" enctype="multipart/form-data">
+				<form method="POST" action="SignUp&status=<?php if (isset($user)) echo $user[0]->id(); else echo "new"  ?>"enctype="multipart/form-data">
 					<?php if ( !empty($_SESSION["SignUpError"])) { ?>
 					<div class="alert alert-danger " role="alert">
 					<span  ><?php echo $_SESSION["SignUpError"]?> </span>
@@ -20,14 +20,20 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" class="form-control" name="pseudo_utilisateur" placeholder="Pseudo utilisateur" required="required">
+						<input type="text" class="form-control" name="pseudo_utilisateur" placeholder="Pseudo utilisateur" required="required"
+																								value=<?php if (isset($user)) {
+                                                                                                echo $user[0]->pseudo_utilisateur();
+                                                                                              	} ?>>
 
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-envelope-open"></i></span>
 						</div>
-						<input type="email" class="form-control" name="email" placeholder="Email" required="required">
+						<input type="email" class="form-control" name="email" placeholder="Email" required="required"
+																								value=<?php if (isset($user)) {
+                                                                                                echo $user[0]->email();
+                                                                                              	} ?>>
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
@@ -39,7 +45,7 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class='fas fa-camera'></i></i></span>
 						</div>
-						<input type="file" class="form-control" name="image" required="required">
+						<input type="file" class="form-control" name="image" >
 					</div>
 
 					<div class="form-group">

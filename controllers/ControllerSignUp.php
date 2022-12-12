@@ -18,6 +18,19 @@
                 //     $_SESSION["SignUpError"]="Verify your Email or Password";
                 //     $this->_view->generateSignIn();
                 // }
+                elseif (isset($_GET['edit'])) {
+                    $this->editUser($_GET['edit']);
+                    // header("Location:  Tab&users" );
+                   
+                }
+                elseif (isset($_GET['status']))  {
+                    if ($_GET['status'] == "new") {
+                      $this->SignUp();
+                    } else if ($_GET['status'] != "new") {
+                      
+                      $this->updateUser($_GET['status']);
+                    } 
+                  }
 
                 else {
                     $this->_view = new View('SignUp');
@@ -41,6 +54,21 @@
 
                 
       
+            }
+            private function editUser($id)
+            {
+                $this->_userManager = new UserManager;
+                $user = $this->_userManager->getUser($id);
+                $this->_view = new View('SignUp');
+                $this->_view->generateEditUser($user);
+                
+
+            }
+            private function updateUser($id)
+            {
+                $this->_userManager = new UserManager;
+                $user = $this->_userManager->updateUser($id);
+                header("Location:  Tab&users" );
             }
 
             private function Verify ($element){

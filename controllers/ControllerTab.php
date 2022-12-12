@@ -21,7 +21,7 @@ class ControllerTab
         $this->supprimerUser($_GET['delete']);
       }
       if (isset($_GET['edit'])) {
-        //$this->editUser($_GET['edit']);
+        header("Location: SignUp&edit=$_GET[edit]");
       }
       $this->afficheTabUser();
     } elseif (isset($_GET['articles'])) {

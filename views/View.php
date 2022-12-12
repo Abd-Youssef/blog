@@ -63,6 +63,16 @@ class View
     $view = $this->generateFile('views/templateForm.php', array('t' => $this->_t, 'content' => $content));
     echo $view;
   }
+  public function generateEditUser($user){
+    //définir le contenu à envoyer
+    //$content = $this->generateFileSimple($this->_file);
+
+    $content = $this->generateFile($this->_file , array('user' => $user));
+
+    //template
+    $view = $this->generateFile('views/templateSign.php', array('t' => $this->_t, 'content' => $content));
+    echo $view;
+  }
 
 
   private function generateFile($file, $data){
