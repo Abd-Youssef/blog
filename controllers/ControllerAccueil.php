@@ -11,6 +11,7 @@ class ControllerAccueil
   private $_articleManager;
   private $_view;
   private $_categorieManager ;
+  private $_usereManager ;
 
   public function __construct()
   {
@@ -47,6 +48,9 @@ class ControllerAccueil
     //ajourt des categories dans la nav bar
     $this->_categorieManager = new CategorieManager();
     $_SESSION["categories"] = $this->_categorieManager->getCategories();
+
+    $this->_usereManager = new UserManager();
+    $_SESSION["users"] = $this->_usereManager->getAllUsers();
 
     $this->_view->generate(array('articles' => $articles));
 

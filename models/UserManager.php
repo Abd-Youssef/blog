@@ -6,9 +6,12 @@
 class UserManager extends Model
 {
   //gréer la fonction qui va recuperer
-  //tous les articles dans la bdd
+  //tous les user dans la bdd
   public function getUsers(){
     return $this->getAllWithObj('SELECT * FROM user', 'User');
+  }
+  public function getAllUsers(){
+    return $this->getAll('*', 'user', 'User');
   }
 
   public function getUser($id){
