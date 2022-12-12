@@ -1,15 +1,16 @@
 <div class="contact1">
   <div class="container-contact1">
     <div class="contact1-pic js-tilt" data-tilt>
-      <img src="public/contact_form/images/laptop.png" alt="IMG">
+      <img src="https://img.freepik.com/photos-gratuite/gros-plan-programmeur-homme-tapant-main-script-site-web-ordinateur-travaillant-distance-maison-hacker-afro-americain-programme-code-binaire-aide-systeme-securite-reseau-concept-codage_482257-37980.jpg?w=360&t=st=1670842484~exp=1670843084~hmac=4eb214c8948500b8f939965f8791b93c8c96951ac434a53038993c22501af24a" 
+      alt="IMG" style="border-radius: 30px ;">
     </div>
     <form method="post" action="post&status=<?php if (isset($article)) echo $article[0]->id(); else echo "new"  ?>" class="contact1-form validate-form">
       <span class="contact1-form-title">Ajouter un post</span>
       <div class="wrap-input1 validate-input" data-validate="Name is required">
         <span class="">Titre : </span>
-        <input class="input1" type="text" name="titre" placeholder="Titre de l'article" value=<?php if (isset($article)) {
+        <input class="input1" type="text" name="titre" placeholder="Titre de l'article" value="<?php if (isset($article)) {
                                                                                                 echo $article[0]->titre();
-                                                                                              } ?>>
+                                                                                              } ?>">
         <span class="shadow-input1"></span>
       </div>
       <div class="wrap-input1 validate-input" data-validate="Name is required">

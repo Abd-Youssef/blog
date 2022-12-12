@@ -15,7 +15,7 @@
 					<div class="card h-100">
 						<div class="single-post post-style-1">
 
-							<div class="blog-image"><img src="public/images/marion-michele-330691.jpg" alt="Blog Image"></div>
+							<div class="blog-image"><img src="public/images/20945431.jpg" alt="Blog Image"></div>
 
 							<a class="avatar" href="post&id=<?= $article->id() ?>"><img src=<?= $article->image() ?> alt=<?= $article->titre() . " Image" ?> style="background-color:white ;"></a>
 

@@ -3,7 +3,7 @@
 
     html,
     body {
-        /* background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg'); */
+        background-image: url('https://img.freepik.com/photos-gratuite/programmeur-numerisant-ecran-sa-smartwatch-appareil-photo-smartphone_1098-18710.jpg?w=996&t=st=1670840536~exp=1670841136~hmac=1405c66e582831570a34fb299517f62b29413230f788c34cf617ae9440246115'); 
         background-size: cover;
         background-repeat: no-repeat;
         height: 100%;
@@ -101,7 +101,7 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
-<body>
+<body >
 
 
 

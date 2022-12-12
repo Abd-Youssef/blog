@@ -33,8 +33,8 @@ function showTab(value) {
 	<div class="container-fluid ">
 		<div class="d-flex justify-content-between">
 			<div class="d-flex align-items-center  ">
-				<ul class="nav col-12 col-lg-auto me-lg-auto mb-2  mb-md-0">
-					<a href="Accueil" class="nav-link px-2 "><img src="public/images/logo.png" alt="Logo Image"></a>
+				<ul class="nav col-12 col-lg-auto me-lg-auto mb-2  mb-md-0 align-items-center">
+					<a href="Accueil" class="nav-link px-2 "><b class="h4">BLOGY</b></a>
 					<li><a href="Accueil" class="nav-link px-2 text-secondary">Home</a></li>
 					<li>
 						<div class="nav-item dropdown  flex-fill">

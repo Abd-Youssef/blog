@@ -5,6 +5,7 @@ class ControllerPost
 
 {
   private $_articleManager;
+  private $_commentaireManager;
   private $_view;
 
   public function __construct()
@@ -27,6 +28,9 @@ class ControllerPost
         $this->update($_GET['status']);
       } 
     }
+    elseif(isset($_GET['id']) && isset($_GET['commentaire'])) {
+      $this->addcommentaire();
+    }
     else {
       $this->article();
     }
@@ -38,9 +42,29 @@ class ControllerPost
     if (isset($_GET['id'])) {
       $this->_articleManager = new ArticleManager;
       $article = $this->_articleManager->getArticle($_GET['id']);
+      
+      $this->_commentaireManager = new CommentaireManager;
+      $commentaires = $this->_commentaireManager->getCommentaires($_GET['id']);
+
       $this->_view = new View('SinglePost');
-      $this->_view->generatePost(array('article' => $article));
+      $this->_view->generatePost(array('article' => $article, 'commentaires' => $commentaires));
     }
+
+  }
+  private function addcommentaire()
+  {
+    if (isset($_GET['id'])) {
+      $this->_articleManager = new ArticleManager;
+      $article = $this->_articleManager->getArticle($_GET['id']);
+
+      $this->_commentaireManager = new CommentaireManager;
+      $this->_commentaireManager->createCommentaire();
+      $commentaires = $this->_commentaireManager->getCommentaires($_GET['id']);
+
+      $this->_view = new View('SinglePost');
+      $this->_view->generatePost(array('article' => $article, 'commentaires' => $commentaires));
+    }
+
 
   }
 

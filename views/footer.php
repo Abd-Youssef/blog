@@ -3,10 +3,10 @@
 	<div class="container">
 		<div class="row">
 
-			<div class="col-lg-4 col-md-6">
+			<div class="col-lg-6 col-md-6">
 				<div class="footer-section">
 
-					<a class="logo" href="index.php"><img src="public/images/logo.png" alt="Logo Image"></a>
+					<a href="Accueil" class="nav-link px-2 "><b class="h4">BLOGY</b></a>
 					<p class="copyright">@ 2022. All rights reserved.</p>
 					<p class="copyright">Designed by <a href="public/https://colorlib.com" target="_blank">Colorlib</a></p>
 					<ul class="icons">
@@ -23,36 +23,24 @@
 
 
 
-			<div class="col-lg-4 col-md-6">
-				<div class="footer-section">
-					<h4 class="title"><b>CATAGORIES</b></h4>
-					<div class="row align-items-center">
+			<div class="col-lg-6 col-md-6">
+				<div class="tag-area">
 
-						<?php if (isset($_SESSION["categories"])) {
-							foreach ($_SESSION["categories"] as $categorie) { ?>
-								<div class="col">
-									<a href="Accueil&type=<?= $categorie["nom"] ?>" class=""> <?= $categorie["nom"] ?></a>
-								</div>
-						<?php
-							}
-						} ?>
+					<h4 class="title"><b>OUR TAG</b></h4>
+					<ul>
+					<?php if (isset($_SESSION["categories"])) {
+											foreach ($_SESSION["categories"] as $categorie) { ?>
+												<li><a href="Accueil&type=<?= $categorie["nom"] ?>" class=" dropdown-item h6"> <?= $categorie["nom"] ?></a></li>
+
+										<?php
+											}
+										} ?>
+					</ul>
+
 					</div>
-				</div><!-- footer-section -->
 			</div><!-- col-lg-4 col-md-6 -->
 
-			<div class="col-lg-4 col-md-6">
-				<div class="footer-section">
-
-					<h4 class="title"><b>SUBSCRIBE</b></h4>
-					<div class="input-area">
-						<form>
-							<input class="email-input" type="text" placeholder="Enter your email">
-							<button class="submit-btn" type="submit"><i class="icon ion-ios-email-outline"></i></button>
-						</form>
-					</div>
-
-				</div><!-- footer-section -->
-			</div><!-- col-lg-4 col-md-6 -->
+			<!-- col-lg-4 col-md-6 -->
 
 		</div><!-- row -->
 	</div><!-- container -->

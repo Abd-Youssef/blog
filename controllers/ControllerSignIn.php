@@ -46,6 +46,7 @@
                           
                           $_SESSION["user"]=$compte->pseudo_utilisateur();
                           $_SESSION["email"]=$compte->email();
+                          $_SESSION["id_user"]=$compte->id();
                           $_SESSION["password"]=$compte->password();
                           $_SESSION["blogueur"]=$compte->blogueur();
                           $_SESSION["connect"]=true;

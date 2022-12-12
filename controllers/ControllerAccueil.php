@@ -33,6 +33,7 @@ class ControllerAccueil
     elseif(isset($_GET['type'])) {
       $this->filtredArticles("WHERE categories.nom = '$_GET[type]'",);
     }
+    
     else {
       $this->articles();
     }
@@ -65,6 +66,10 @@ class ControllerAccueil
     $this->_categorieManager = new CategorieManager();
     $_SESSION["categories"] = $this->_categorieManager->getCategories();
 
+
+    $this->_usereManager = new UserManager();
+    $_SESSION["users"] = $this->_usereManager->getAllUsers();
+
     $this->_view->generate(array('articles' => $articles));
 
   }
@@ -78,6 +83,9 @@ class ControllerAccueil
     //ajourt des categories dans la nav bar
     $this->_categorieManager = new CategorieManager();
     $_SESSION["categories"] = $this->_categorieManager->getCategories();
+
+    $this->_usereManager = new UserManager();
+    $_SESSION["users"] = $this->_usereManager->getAllUsers();
 
     $this->_view->generateTab(array('articles' => $articles));
 

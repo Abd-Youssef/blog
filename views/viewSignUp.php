@@ -21,9 +21,9 @@
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
 						<input type="text" class="form-control" name="pseudo_utilisateur" placeholder="Pseudo utilisateur" required="required"
-																								value=<?php if (isset($user)) {
+																								value="<?php if (isset($user)) {
                                                                                                 echo $user[0]->pseudo_utilisateur();
-                                                                                              	} ?>>
+                                                                                              	} ?>">
 
 					</div>
 					<div class="input-group form-group">

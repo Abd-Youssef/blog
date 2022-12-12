@@ -27,6 +27,7 @@ class Router
         
         //on décompose l'url et on lui applique un filtre
         $url = explode('/', filter_var($_GET['url'], FILTER_SANITIZE_URL));
+        
 
         //on recupere le premier parametre de url
         //on le met tout en miniscule
@@ -48,7 +49,8 @@ class Router
         }
         else {
           throw new \Exception("Page introuvable", 1);
-
+          //require_once('controllers/ControllerAccueil.php');
+          //$this->ctrl = new ControllerAccueil($url);
         }
       }
       else {

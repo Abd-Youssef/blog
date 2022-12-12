@@ -46,18 +46,18 @@ abstract class Model
 
   }
   //generale
-  protected function requete($sql){
+  protected function requete($sql,$attribue=null){
     $this->getBdd();
     $req = self::$_bdd->prepare($sql);
-    $req->execute();
+    $req->execute($attribue);
     return $req;
     $req->closeCursor();
   }
 
   //principalement récupiration des users
-  protected function getAll($elements,$table){
+  protected function getAll($elements,$table,$condition=""){
     $this->getBdd();
-    $req = self::$_bdd->prepare('SELECT '.$elements.'FROM '.$table);
+    $req = self::$_bdd->prepare("SELECT $elements FROM $table $condition");
     $req->execute();
 
     //on crée la variable data qui
@@ -94,8 +94,21 @@ abstract class Model
     return $var;
     $req->closeCursor();
   }
+  protected function getOneWithTwoAttribute($table, $obj, $id1 ,$id2)
+  {
+    $this->getBdd();
+    $var = [];
+    $req = self::$_bdd->prepare("SELECT * FROM " .$table. " WHERE id_user = ? AND id_article = ?");
+    $req->execute(array($id1),array($id2));
+    while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
+      $var[] = new $obj($data);
+    }
 
+    return $var;
+    $req->closeCursor();
+  }
 
+  
 
 
 
