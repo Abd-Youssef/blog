@@ -53,14 +53,14 @@ class ArticleManager extends Model
 
   public function createArticle(){
       return $this->createOne('articles',"titre,description, contenu,image, date_de_creation,code_categorie,code_blogueur",
-      [$_POST['titre'],$_POST['description'], $_POST['contenu'],$this->haveImage(), time(), $_POST['categorie'], $_POST['blogueur']],
+      [$_POST['titre'],$_POST['description'], $_POST['contenu'],$this->haveImage(), date('Y-m-d H:i:s',$_SERVER['REQUEST_TIME']), $_POST['categorie'], $_SESSION["id_user"]],
       "?,?,?,?,?,?,?");
     }
   public function updateArticle($id){
     
     $req =  " UPDATE articles
-              SET titre = '$_POST[titre]',description='$_POST[description]',contenu ='$_POST[contenu]',date_de_modification = '".time().
-              "' ,code_categorie = '$_POST[categorie]' ,code_blogueur = '$_POST[blogueur]', 
+              SET titre = '$_POST[titre]',description='$_POST[description]',contenu ='$_POST[contenu]',date_de_modification = '".date('Y-m-d H:i:s',$_SERVER['REQUEST_TIME']).
+              "' ,code_categorie = '$_POST[categorie]' ,code_blogueur = '$_SESSION[id_user]', 
               image='". $this->haveImage()."'
               WHERE id = $id ";
       return $this->requete($req);
@@ -74,7 +74,7 @@ class ArticleManager extends Model
             $new_img_name = uniqid("IMG-", true).'.'.$img_ex_lc;
             $img_upload_path = 'public/images/'.$new_img_name;
             move_uploaded_file($tmp_name, $img_upload_path);
-            return $new_img_name ;
+            return $img_upload_path ;
       }
       else return "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzj-g2tCVry_m5tMn3kFB2JHrbu1J7AukXYtOa6rXFxmULELmLJg_Q3ukvA1WJCcB0kbs&usqp=CAU";
     }

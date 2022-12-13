@@ -20,9 +20,8 @@ class CommentaireManager extends Model
 
   public function createCommentaire()
   {
-
       return $this->createOne('commentaire', "id_article ,id_user ,	date_de_creation, contenu",
-       [$_SESSION['id_article'], $_SESSION['id_user'],time() , $_POST['contenu']], "?,?,?,?");
+       [$_SESSION['id_article'], $_SESSION['id_user'],date('Y-m-d H:i:s',$_SERVER['REQUEST_TIME']) , $_POST['contenu']], "?,?,?,?");
     
 
 

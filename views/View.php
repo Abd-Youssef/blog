@@ -45,9 +45,9 @@ class View
 
   //générer la vue du formulaire
   //de création d'un article
-  public function generateForm(){
+  public function generateForm($data=null){
     //définir le contenu à envoyer
-    $content = $this->generateFileSimple($this->_file);
+    $content = $this->generateFileSimple($this->_file, $data);
 
     //template
     $view = $this->generateFile('views/templateForm.php', array('t' => $this->_t, 'content' => $content));

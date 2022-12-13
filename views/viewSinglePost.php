@@ -30,7 +30,7 @@
             <div class="post-info">
 
               <div class="left-area">
-                <img src="public/images/avatar-1-120x120.jpg" alt="Profile Image">
+                <img src="<?=$article[0]->image()   ?>" alt="Profile Image">
               </div>
 
               <div class="middle-area">
@@ -71,20 +71,20 @@
             </ul>
           </div><!-- blog-post-inner -->
 
-          <div class="post-icons-area">
+          <!-- <div class="post-icons-area">
             <ul class="post-icons">
               <li><a href="#"><i class="ion-heart"></i>57</a></li>
               <li><a href="#"><i class="ion-chatbubble"></i>6</a></li>
               <li><a href="#"><i class="ion-eye"></i>138</a></li>
             </ul>
 
-            <!-- <ul class="icons">
+            <ul class="icons">
               <li>SHARE : </li>
               <li><a href="#"><i class="ion-social-facebook"></i></a></li>
               <li><a href="#"><i class="ion-social-twitter"></i></a></li>
               <li><a href="#"><i class="ion-social-pinterest"></i></a></li>
-            </ul> -->
-          </div>
+            </ul> 
+          </div> -->
 
 
         </div><!-- main-post -->
@@ -96,9 +96,9 @@
 
           <div class="sidebar-area about-area">
             <h4 class="title"><b>ABOUT BLOGY</b></h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-              ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur
-              Ut enim ad minim veniam</p>
+            <p>BLOGY is a platform created by Abdennadher Youssef And Mohamed Ali Elleuch To
+              present to you the different framework and technology in the world of software engineering 
+            </p>
           </div>
 
 
@@ -140,10 +140,10 @@
             <div class="row">
 
               <div class="col-sm-6">
-                <input type="text" aria-required="true" name="contact-form-name" class="form-control" placeholder="Enter your name" aria-invalid="true" required value="<?php if (isset($_SESSION["user"])) echo $_SESSION["user"] ;?>" >
+                <input type="text" aria-required="true" disabled="disabled" name="contact-form-name" class="form-control" placeholder="Enter your name" aria-invalid="true" required value="<?php if (isset($_SESSION["user"])) echo $_SESSION["user"] ;?>" >
               </div><!-- col-sm-6 -->
               <div class="col-sm-6">
-                <input type="email" aria-required="true" name="contact-form-email" class="form-control" placeholder="Enter your email" aria-invalid="true" required value=<?php if (isset($_SESSION["email"]))  echo $_SESSION["email"] ?>>
+                <input type="email" aria-required="true"  disabled="disabled" name="contact-form-email" class="form-control" placeholder="Enter your email" aria-invalid="true" required value=<?php if (isset($_SESSION["email"]))  echo $_SESSION["email"] ?>>
               </div><!-- col-sm-6 -->
 
               <div class="col-sm-12">
@@ -173,7 +173,7 @@
             <div class="post-info">
 
               <div class="left-area">
-                <a class="avatar" href="#"><img src="public/images/avatar-1-120x120.jpg" alt="Profile Image"></a>
+                <a class="avatar" href="#"><img src="public/images/avatar.jpg" alt="Profile Image"></a>
               </div>
 
               <div class="middle-area">

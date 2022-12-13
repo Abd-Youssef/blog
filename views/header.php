@@ -71,7 +71,8 @@ function showTab(value) {
 					<a href="post&create" type="button" class="btn btn-outline-success  m-1">Créer un article</a>
 					<a href="accueil&disconnect" type="button" class="btn btn-outline-danger m-1">disconnect</a>
 					<div class="nav-item dropdown m-1 flex-fill">
-						<a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action"><img src="public/images/user.png" class="avatar"> <?php echo $_SESSION["user"] ?> <b class="caret"></b></a>
+						<a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action"><img src="public/images/avatar.jpg" class="avatar" 
+					style="height: 60px; width:60px ; border-radius: 30px;"> <?php echo $_SESSION["user"] ?> <b class="caret"></b></a>
 						<div class="dropdown-menu">
 							<a href="tab&users" class="dropdown-item"><i class="fa fa-user-o"></i> Table of users</a></a>
 							<a href="tab&articles" class="dropdown-item"><i class="fa fa-calendar-o"></i> Table of Articles</a></a>
@@ -82,7 +83,8 @@ function showTab(value) {
 				<?php
 				} else { ?>
 					<a href="accueil&disconnect" type="button" class="btn btn-outline-danger m-1">disconnect</a>
-					<a href="#"  class="nav-link  user-action"><img src="public/images/user.png" class="avatar"> <?php echo $_SESSION["user"] ?> <b class="caret"></b></a>	
+					<a href="#"  class="nav-link  user-action"><img src="public/images/avatar.jpg" class="avatar" 
+					style="height: 60px; width:60px ; border-radius: 30px;"> <?php echo $_SESSION["user"] ?> <b class="caret"></b></a>	
 				<?php } ?>
 				<?php if ($_SESSION["connect"] == true) { ?>
 					

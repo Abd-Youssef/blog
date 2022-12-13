@@ -8,29 +8,35 @@
       <span class="contact1-form-title">Ajouter un post</span>
       <div class="wrap-input1 validate-input" data-validate="Name is required">
         <span class="">Titre : </span>
-        <input class="input1" type="text" name="titre" placeholder="Titre de l'article" value="<?php if (isset($article)) {
+        <input class="input1"required="required" type="text" name="titre" placeholder="Titre de l'article" value="<?php if (isset($article)) {
                                                                                                 echo $article[0]->titre();
                                                                                               } ?>">
         <span class="shadow-input1"></span>
       </div>
-      <div class="wrap-input1 validate-input" data-validate="Name is required">
-      <span class="">Blogueur : </span>
-        <input class="input1" type="number" name="blogueur" placeholder="code blogueur" value=<?php if (isset($article)) {
-                                                                                              echo $article[0]->code_blogueur();
-                                                                                            } ?>>
-        <span class="shadow-input1"></span>
+      <div class="wrap-input1 validate-select" data-validate="Name is required">
+      <span class="">Categorie : </span>
+
+        <select name="categorie" required="required" class="select1" value="<?php foreach($_SESSION["categories"] as $c){ if ( (isset($article))&&($article[0]->code_categorie() == $c["id"])   ) {echo $c["nom"] ;}}?>">
+          			<option> choisire categorie</option>
+                  	<?php 
+                      foreach($_SESSION["categories"] as $c){
+                        ?>
+                        <option value=<?=$c["id"]?>><?=$c["nom"]?></option>
+                        <?php
+                        }
+                 	 ?>
+                    
+               </select>
       </div>
       <div class="wrap-input1 validate-input" data-validate="Name is required">
-      <span class="">Categorie : </span>
-        <input class="input1" type="number" name="categorie" placeholder="categorie" value=<?php if (isset($article)) {
-                                                                                            echo $article[0]->code_categorie();
-                                                                                          } ?>>
+      <span class="">Blogueur : </span>
+        <input class="input1" type="text"  disabled="disabled" name="blogueur" placeholder="code blogueur" value="<?= $_SESSION["user"] ?>">
         <span class="shadow-input1"></span>
       </div>
 
       <div class="wrap-input1 validate-input" data-validate="Message is required">
         <span class="">Une petit description : </span>
-        <textarea class="input1" name="description" placeholder="petit description" ><?php if (isset($article)) {
+        <textarea class="input1"required="required" name="description" placeholder="petit description" ><?php if (isset($article)) {
                                                                                             echo $article[0]->description();
                                                                                           } ?></textarea>
         <span class="shadow-input1"></span>
@@ -38,7 +44,7 @@
 
       <div class="wrap-input1 validate-input" data-validate="Message is required">
         <span class="">Description : </span>
-        <textarea class="input1" name="contenu" placeholder="Contenu de l'article" ><?php if (isset($article)) {
+        <textarea class="input1"required="required" name="contenu" placeholder="Contenu de l'article" ><?php if (isset($article)) {
                                                                                             echo $article[0]->contenu();
                                                                                           } ?></textarea>
         <span class="shadow-input1"></span>
@@ -46,9 +52,7 @@
 
       <div class="wrap-input1 validate-input" data-validate="Name is required">
       <span class="">image : </span>
-        <input class="input1" type="file" name="image" id="image" placeholder="categorie" value=<?php if (isset($article)) {
-                                                                                            echo $article[0]->image();
-                                                                                          } ?>>
+        <input type="file" class="form-control" name="image" >
         <span class="shadow-input1"></span>
       </div>                                                                                  
 

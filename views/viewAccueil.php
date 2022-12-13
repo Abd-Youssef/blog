@@ -17,7 +17,7 @@
 
 							<div class="blog-image"><img src="public/images/20945431.jpg" alt="Blog Image"></div>
 
-							<a class="avatar" href="post&id=<?= $article->id() ?>"><img src=<?= $article->image() ?> alt=<?= $article->titre() . " Image" ?> style="background-color:white ;"></a>
+							<a class="avatar" href="post&id=<?= $article->id() ?>"><img src="<?= $article->image() ?>" alt=<?= $article->titre() . " Image" ?> style="background-color:white ;"></a>
 
 							<div class="blog-info">
 

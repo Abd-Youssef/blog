@@ -11,6 +11,7 @@ class Article
   private $_code_categorie ;
   private $_date_de_modification;
   private $_code_blogueur;
+  private $_views;
 
   public function __construct(array $date_de_creation){
     $this->hydrate($date_de_creation);
@@ -83,6 +84,11 @@ class Article
       $this->_code_blogueur = $code_blogueur;
 
   }
+  public function setViews($views)
+  {
+      $this->_views = $views;
+
+  }
   //getters
   public function id()
   {
@@ -122,6 +128,10 @@ class Article
   public function code_blogueur()
   {
     return $this->_code_blogueur;
+  }
+  public function views()
+  {
+    return $this->_views;
   }
 
 
